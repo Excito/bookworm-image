@@ -13,6 +13,7 @@ fi
 
 echo "Reconfiguring openssh-server"
 dpkg-reconfigure openssh-server
+systemctl enable --now ssh
 
 echo "Cleaning up"
 rm -f $0

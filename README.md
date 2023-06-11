@@ -11,6 +11,7 @@ The current version for the excito bookworm image is **1.0**
 ## Contents
 
 - This README.md file, the "image create manual"
+- interfaces.tpl, used for network template generation (TODO: should be moved to the installer repository)
 - `first-boot` which contains first-boot scripts run ... on the first boot; Currently these scripts:
   - Generate new ssh host keys
   - Remove themselves
@@ -150,9 +151,10 @@ echo "b3" > /etc/hostname
 ```
 apt-get clean
 ```
-- Remove previously created ssh keys (they will be recreated by the `first-boot` files):
+- Remove previously created ssh keys and disable the SSH server (`first-boot` will re-create keys and re-enable the server):
 ```
 rm /etc/ssh/*key*
+systemctl disable ssh
 ```
 - Exit the chroot:
 ```
