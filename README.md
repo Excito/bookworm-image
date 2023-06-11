@@ -144,6 +144,10 @@ EOF
 ```
 echo "b3" > /etc/hostname
 ```
+- Set the default systemd target to `multi-user`:
+```
+systemctl set-default multi-user.target
+```
 
 ### Cleanup
 
